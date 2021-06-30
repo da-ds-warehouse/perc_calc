@@ -73,3 +73,7 @@ if __name__ == '__main__':
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
+else:
+    # wrap as WSGI
+    import tornado.wsgi
+    app = tornado.wsgi.WSGIAdapter(app)
