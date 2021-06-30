@@ -1,1 +1,1 @@
-web: python perc_calc.py --port=$PORT
+web: python perc_calc.py
