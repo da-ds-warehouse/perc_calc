@@ -67,7 +67,7 @@ class CalcPageHandler(tornado.web.RequestHandler):
 if __name__ == '__main__':
     tornado.options.parse_command_line()
     app = tornado.web.Application(
-        handlers=[(r'/', IndexHandler), (r'/index', CalcPageHandler)],
+        handlers=[(r'/', IndexHandler), (r'/', CalcPageHandler)],
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
     debug=False)
     http_server = tornado.httpserver.HTTPServer(app)
