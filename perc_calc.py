@@ -19,7 +19,7 @@ class IndexHandler(tornado.web.RequestHandler):
         number3_1 = ''
         number3_2 = ''
         result_3 = ''
-        self.render(r'/', number1_1 = '', number1_2 = '', result_1 = '', number2_1 = '', 
+        self.render('index.html', number1_1 = '', number1_2 = '', result_1 = '', number2_1 = '', 
                      number2_2 = '', result_2 = '', number3_1 = '', number3_2 = '', result_3 = '')
 
 class CalcPageHandler(tornado.web.RequestHandler):
@@ -61,13 +61,13 @@ class CalcPageHandler(tornado.web.RequestHandler):
             number3_2 = ''
             result_3 = ''
         
-        self.render(r'/', number1_1 = number1_1, number1_2 = number1_2, result_1 = result_1, number2_1 = number2_1, 
+        self.render('index.html', number1_1 = number1_1, number1_2 = number1_2, result_1 = result_1, number2_1 = number2_1, 
                      number2_2 = number2_2, result_2 = result_2, number3_1 = number3_1, number3_2 = number3_2, result_3 = result_3)
 
 if __name__ == '__main__':
     tornado.options.parse_command_line()
     app = tornado.web.Application(
-        handlers=[(r'/', IndexHandler), (r'/', CalcPageHandler)],
+        handlers=[(r'/', IndexHandler), (r'/index', CalcPageHandler)],
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
     debug=False)
     http_server = tornado.httpserver.HTTPServer(app)
