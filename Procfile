@@ -1,1 +1,1 @@
-web: gunicorn perc_calc.py:app
+web: python perc_calc.py --port=$PORT
