@@ -1,1 +1,1 @@
-python perc_calc.py --port=8000
+web: gunicorn app:app
