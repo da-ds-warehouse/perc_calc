@@ -69,7 +69,7 @@ if __name__ == '__main__':
     app = tornado.web.Application(
         handlers=[(r'/', IndexHandler), (r'/index', CalcPageHandler)],
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
-    debug=True)
+    debug=False)
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
