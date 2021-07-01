@@ -1,1 +1,1 @@
-web: gunicorn perc_calc:app
+web: gunicorn perc_calc.py:app
