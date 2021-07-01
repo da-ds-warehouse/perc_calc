@@ -21,8 +21,7 @@ class IndexHandler(tornado.web.RequestHandler):
         result_3 = ''
         self.render('index.html', number1_1 = '', number1_2 = '', result_1 = '', number2_1 = '', 
                      number2_2 = '', result_2 = '', number3_1 = '', number3_2 = '', result_3 = '')
-
-class CalcPageHandler(tornado.web.RequestHandler):
+                     
     def post(self):
            
         number1_1 = self.get_argument('number1_1')
@@ -67,13 +66,9 @@ class CalcPageHandler(tornado.web.RequestHandler):
 if __name__ == '__main__':
     tornado.options.parse_command_line()
     app = tornado.web.Application(
-        handlers=[(r'/', IndexHandler), (r'/index', CalcPageHandler)],
+        handlers=[(r'/', IndexHandler)],
         template_path=os.path.join(os.path.dirname(__file__), "templates"),
-    debug=False)
+    debug=True)
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
-else:
-    # wrap as WSGI
-    import tornado.wsgi
-    app = tornado.wsgi.WSGIAdapter(app)
