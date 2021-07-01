@@ -1,0 +1,10 @@
+{
+  "name": "perc-calc",
+  "description": "Percentage Calculator",
+  "repository": "https://github.com/thatdsguy/perc_calc",
+  "keywords": ["python", "tornado"],
+  "success_url": "/",
+  "env": {
+      "BUILDPACK_URL": "https://github.com/heroku/heroku-buildpack-python"
+  }
+}
