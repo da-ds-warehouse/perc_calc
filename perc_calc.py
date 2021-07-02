@@ -31,7 +31,7 @@ class IndexHandler(tornado.web.RequestHandler):
             number1_1 = float(number1_1)
             number1_2 = float(number1_2)
             result_1 = str(float(number1_1 * number1_2 / 100))
-        except ValueError:
+        except (ValueError, ZeroDivisionError) as error:
             number1_1 = ''
             number1_2 = ''
             result_1 = ''
@@ -43,7 +43,7 @@ class IndexHandler(tornado.web.RequestHandler):
             number2_1 = float(number2_1)
             number2_2 = float(number2_2)
             result_2 = str(float(number2_1 / number2_2 * 100))
-        except ValueError:
+        except (ValueError, ZeroDivisionError) as error:
             number2_1 = ''
             number2_2 = ''
             result_2 = ''
@@ -55,7 +55,7 @@ class IndexHandler(tornado.web.RequestHandler):
             number3_1 = float(number3_1)
             number3_2 = float(number3_2)
             result_3 = str(float((number3_2 - number3_1) / number3_1 * 100))
-        except ValueError:
+        except (ValueError, ZeroDivisionError) as error:
             number3_1 = ''
             number3_2 = ''
             result_3 = ''
